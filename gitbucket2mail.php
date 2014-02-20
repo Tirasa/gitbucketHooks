@@ -20,6 +20,7 @@ $message = '<html><head><meta http-equiv="Content-Type" content="text/html; char
 $message .= '<div style="margin-top: 10px;font-size: 30px; font-family: Arial, monospace;">Tirasa - GitBucket</div>';
 $message .= '<hr/>';
 
+$firstCommitMessage = $json->commits[0]->message;
 foreach ($json->commits as $commit) {
 
   // prepare commit variables
@@ -61,7 +62,7 @@ $message .= '<div style="margin-top: 10px;font-size: 12px; font-family: Arial, m
 
 $message .= '</body></html>';
 
-$mailMessage = str_replace('\n', ' ', str_lreplace('\n', ' ', $commitMessage));
+$mailMessage = str_replace('\n', ' ', str_lreplace('\n', ' ', $firstCommitMessage));
 $subject = '[' . $repoName . '] ' . $mailMessage;
 
 $headers = 'MIME-Version: 1.0' . "\r\n";
