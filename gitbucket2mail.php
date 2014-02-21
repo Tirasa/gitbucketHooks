@@ -46,15 +46,15 @@ foreach ($json->commits as $commit) {
   $message .= '<div style="margin-top: 10px; border: 1px solid #d2e6ed;">';
 
   foreach ($commit->added as $commitAdded) {
-    $message .= '<div style="background: #EAF2F5; color: #000; font-size: 12px; font-family: Arial, monospace; padding: 1px 4px; border-bottom: 1px solid #d2e6ed;">A&nbsp;&nbsp;&nbsp;' . $commitAdded . '</div>';
+    $message .= '<div style="background: #EAF2F5; color: #000; font-size: 12px; font-family: Arial, monospace; padding: 1px 4px; border-bottom: 1px solid #d2e6ed;">A   ' . $commitAdded . '</div>';
   }
 
   foreach ($commit->modified as $commitModified) {
-    $message .= '<div style="background: #EAF2F5; color: #000; font-size: 12px; font-family: Arial, monospace; padding: 1px 4px; border-bottom: 1px solid #d2e6ed;">M&nbsp;&nbsp;&nbsp;' . $commitModified . '</div>';
+    $message .= '<div style="background: #EAF2F5; color: #000; font-size: 12px; font-family: Arial, monospace; padding: 1px 4px; border-bottom: 1px solid #d2e6ed;">M   ' . $commitModified . '</div>';
   }
 
   foreach ($commit->removed as $commitRemoved) {
-    $message .= '<div style="background: #EAF2F5; color: #000; font-size: 12px; font-family: Arial, monospace; padding: 1px 4px; border-bottom: 1px solid #d2e6ed;">D&nbsp;&nbsp;&nbsp;' . $commitRemoved . '</div>';
+    $message .= '<div style="background: #EAF2F5; color: #000; font-size: 12px; font-family: Arial, monospace; padding: 1px 4px; border-bottom: 1px solid #d2e6ed;">D   ' . $commitRemoved . '</div>';
   }
   $message .= '</div>';
 }
