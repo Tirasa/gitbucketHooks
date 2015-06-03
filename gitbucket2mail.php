@@ -43,7 +43,8 @@ if ($json->issue) {
         $commitId = $commit->id;
         $commitMessage = $commit->message;
         $commitTimestamp = $commit->timestamp;
-        $commitUrl = $commit->url;
+	// temporary(?) fix
+        $commitUrl = str_replace("commits", "commit", str_replace("api/v3/", "", $commit->url));
         $commitAdded = $commit->added;
         $commitModiefied = $commit->modified;
         $commitRemoved = $commit->removed;
