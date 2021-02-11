@@ -44,21 +44,28 @@ class Script {
         case 'push':
         return {
             content:{
-                text: `${request.content.sender.login} pushed ${request.content.commits.length} commit(s) to branch [${refParser(request.content.ref)}](${request.content.compare}) in [${request.content.repository.name}](${request.content.repository.html_url})`
+                text: `${request.content.pusher.name} pushed ${request.content.commits.length} commit(s) to branch [${refParser(request.content.ref)}](${request.content.compare}) in [${request.content.repository.name}](${request.content.repository.html_url})`
             }
         };
         
         case 'pull_request':
         return {
             content:{
-                text: `${request.content.sender.login} ${request.content.action} PR [#${request.content.pull_request.number}](${request.content.pull_request.html_url}) in [${request.content.repository.name}](${request.content.repository.html_url})`
+                text: `${request.content.pull_request.user.login} ${request.content.action} PR [#${request.content.pull_request.number}](${request.content.pull_request.html_url}) in [${request.content.repository.name}](${request.content.repository.html_url})`
+            }
+        };
+
+        case 'issues':
+        return {
+            content:{
+                text: `${request.content.issue.user.login} ${request.content.action} issue [#${request.content.issue.number}](${request.content.issue.html_url}) in [${request.content.repository.name}](${request.content.repository.html_url})`
             }
         };
 
         case 'issue_comment':
         return {
             content:{
-                text: `${request.content.sender.login} added comment [#${request.content.comment.id}](${request.content.comment.html_url}) to [#${request.content.issue.number}](${request.content.issue.html_url}) in [${request.content.repository.name}](${request.content.repository.html_url})`
+                text: `${request.content.issue.user.login} added comment [#${request.content.comment.id}](${request.content.comment.html_url}) to [#${request.content.issue.number}](${request.content.issue.html_url}) in [${request.content.repository.name}](${request.content.repository.html_url})`
             }
         };
 
